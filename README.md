@@ -1,5 +1,3 @@
-# WIP - Work in progress!
-
 # redux-saga-rn-alert
 
 Ever wanted to use Alert.alert() with callbacks within a side-effect or generator function? This library help along!
