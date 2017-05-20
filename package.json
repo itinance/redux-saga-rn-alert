@@ -15,7 +15,7 @@
     "react-native-component",
     "redux-saga",
     "alert",
-    "side-effect",
+    "side-effect"
   ],
   "author": "Hagen Huebel <hhuebel@itinance.com> (hhuebel@itinance.com)",
   "license": "MIT",
