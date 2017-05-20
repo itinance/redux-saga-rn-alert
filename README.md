@@ -1,2 +1,11 @@
+# WIP - Work in progress!
+
 # redux-saga-rn-alert
-Support for Alert.alert() within redux-saga
+
+# Installation
+```
+yarn add redux-saga-rn-alert
+```
+
+# Usage
+
