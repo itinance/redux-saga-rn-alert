@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:itinance/react-native-sha256.git"
+    "url": "git@github.com:itinance/redux-saga-rn-alert"
   },
   "keywords": [
     "react-native-component",
