@@ -3,7 +3,7 @@
 Ever wanted to use Alert.alert() with callbacks within a side-effect or generator function? This library help along!
 
 It allows us to show a typical alert-modal while we can pass callbacks
-for the user-action the redux-saga-way with `yield put()` or `yield put()`.
+for the user-action the redux-saga-way with `yield put()` or `yield call()`.
 Other side-effects like `fork` or `spawn` aren't implemented yet. Feel
 free to contribute if you need it!
 
@@ -50,7 +50,7 @@ export default function * rootSaga() {
 # Usage
 
 The alert-function has the same signature as the official [alert-method](https://facebook.github.io/react-native/docs/alert.html#alert)
-of reacht-native.
+of react-native.
 
 ```javascript
 static alert(title, message?, buttons?, options?) {}
@@ -70,12 +70,11 @@ Show an alert with 2 Buttons and put some actions:
 ```
 
 In this example an alert-box will be shown with two buttons "Cancel"
-and "ok". If the user taps on "cancel", a ```yield put()``` will be
-executed with a user-defined action, while "ok" raises a ```yield call````
-to the pop-method of the Router from [react-native-router-flux] (https://github.com/itinance/react-native-router-flux).
+and "ok". If the user taps on "cancel", a `yield put()` will be
+executed with a user-defined action, while "ok" raises a `yield call`
+to the pop-method of the Router from [react-native-router-flux](https://github.com/itinance/react-native-router-flux).
 
-Instead of executing a "plain" function, you can also call a method passing
-arguments:
+Instead of executing a "plain" function like `pop()` without any arguments, you can also call a method passing arguments:
 
 ## Example 2
 
@@ -109,3 +108,7 @@ It is also allowed to pass an array of several side effects:
 In this example, the callback-function of the Cancel-button will
 first "yield put" an action to our reducers and then call the pop()-method 
 of the router.
+
+## Contribution:
+
+Contributors are welcome! Feel free to submit pull requests or open [discussions](https://github.com/itinance/redux-saga-rn-alert/issues).
