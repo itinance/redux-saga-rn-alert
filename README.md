@@ -39,6 +39,9 @@ In the root saga spawn the channel watcher:
 **saga.js**
 
 ```javascript
+
+import { watchAlertChannel } from 'redux-saga-rn-alert';
+
 export default function * rootSaga() {
   yield [
     // ... all your sagas here
