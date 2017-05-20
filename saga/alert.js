@@ -24,7 +24,6 @@ export function * watchAlertChannel() {
 
             case ACTION_CALL:
                 const {method, args} = action.payload;
-                console.log(method)
                 yield call(method, args);
                 break;
         }

@@ -6,4 +6,4 @@
 'use strict';
 
 export { watchAlertChannel, alert } from './saga/alert';
-export { alertReducer } from './reducer/alert';
+export { default as alertReducer } from './reducer/alert';
