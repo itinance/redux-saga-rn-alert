@@ -65,8 +65,8 @@ Show an alert with 2 Buttons and put some actions:
 
 ```javascript
   const buttons = [
-      {text: 'Cancel', put: {type: ACTIONS.S_CANCEL_EDIT}},
-      {text: 'OK', call: RouterActions.pop},
+      {text: 'Cancel', style:'cancel', put: {type: ACTIONS.S_CANCEL_EDIT}},
+      {text: 'OK', style:'default',call: RouterActions.pop},
   ]
 
   yield call(alert, 'Error', 'Foobar message', buttons)
@@ -83,8 +83,8 @@ Instead of executing a "plain" function like `pop()` without any arguments, you 
 
 ```javascript
   const buttons = [
-      {text: 'Cancel', put: {type: ACTIONS.S_CANCEL_EDIT}},
-      {text: 'OK', call: {method: myMethod, args: {name: '', street: ''}},
+      {text: 'Cancel', style:'cancel', put: {type: ACTIONS.S_CANCEL_EDIT}},
+      {text: 'OK', style:'default', call: {method: myMethod, args: {name: '', street: ''}},
   ]
 
   yield call(alert, 'Error', 'Happy to call alert with callbacks within a generator function', buttons)
@@ -96,13 +96,13 @@ It is also allowed to pass an array of several side effects:
 
 ```javascript
   const buttons = [
-      {text: 'Cancel', actions:
+      {text: 'Cancel', style:'cancel', actions:
         [
             {put: {type: ACTIONS.S_CANCEL_EDIT}},
             {call: RouterActions.pop},
         ],
       },
-      {text: 'OK', call: RouterActions.pop},
+      {text: 'OK', style:'default', call: RouterActions.pop},
   ]
 
   yield call(alert, 'Error', 'Foobar message', buttons)
@@ -112,7 +112,14 @@ In this example, the callback-function of the Cancel-button will
 first "yield put" an action to our reducers and then call the pop()-method
 of the router.
 
-Thanks to [1](https://github.com/itinance/redux-saga-rn-alert/pull/1) you can also apply the style (iOS-Only) for the Button.
+IOS Style Support:
+
+**iOS**
+
+On iOS you can specify any number of buttons. Each button can optionally specify a style, which is one of 
+* default
+* cancel
+* destructive
 
 ## Contribution:
 
