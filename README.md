@@ -109,7 +109,7 @@ It is also allowed to pass an array of several side effects:
 ```
 
 In this example, the callback-function of the Cancel-button will
-first "yield put" an action to our reducers and then call the pop()-method 
+first "yield put" an action to our reducers and then call the pop()-method
 of the router.
 
 IOS Style Support:
