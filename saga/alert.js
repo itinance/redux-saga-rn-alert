@@ -37,7 +37,7 @@ export function * alert(title, message, buttons = [], options ) {
     const _buttons = buttons.map( b => {
         return {
             text: b.text,
-            style: b.style,
+            style: b.hasOwnProperty('style')? b.style : 'default',
             onPress: _createAction(b)
         }
     });
