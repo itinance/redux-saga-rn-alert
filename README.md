@@ -7,6 +7,17 @@ for the user-action the redux-saga-way with `yield put()` or `yield call()`.
 Other side-effects like `fork` or `spawn` aren't implemented yet. Feel
 free to contribute if you need it!
 
+
+# Changelog
+
+**V 1.2.6**
+
+Nested alerts will be prevented from now on, as soon as one re-enables them calling `preventNestedAlerts(false)`.
+
+Let's say in your code gets another alert() called while the first one is still open. This could result in unwanted and strage effects.
+Since 1.2.6 we will prevent that a subsequent call to alert() will be appear if another alert is still open.
+
+
 # Installation
 
 ```bash
@@ -116,7 +127,7 @@ IOS Style Support:
 
 **iOS**
 
-On iOS you can specify any number of buttons. Each button can optionally specify a style, which is one of 
+On iOS you can specify any number of buttons. Each button can optionally specify a style, which is one of
 * default
 * cancel
 * destructive

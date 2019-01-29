@@ -7,6 +7,9 @@ export const alertChannel = channel()
 
 import {ACTION_SHOW_ALERT, ACTION_PUT, ACTION_CALL} from '../actions';
 
+let _alertIsRunning = false
+  , _preventNestedAlerts = true;
+
 export function * watchAlertChannel() {
   while (true) {
     const action = yield take(alertChannel)
@@ -15,14 +18,22 @@ export function * watchAlertChannel() {
         switch(action.type) {
             case ACTION_SHOW_ALERT:
                 const {message, title, buttons, options} = action.payload;
+
+                if(_alertIsRunning && _preventNestedAlerts) return; // prevent nested alerts
+                _alertIsRunning = true;
+
                 Alert.alert(title, message, buttons, options)
                 break;
-                
+
             case ACTION_PUT:
+                _alertIsRunning = false;
+
                 yield put(action.payload)
                 break;
 
             case ACTION_CALL:
+                _alertIsRunning = false;
+
                 const {method, args} = action.payload;
                 yield call(method, args);
                 break;
@@ -31,6 +42,10 @@ export function * watchAlertChannel() {
         console.log("Error", err)
     }
   }
+}
+
+export function * preventNestedAlerts(prevent) {
+    _preventNestedAlerts = prevent;
 }
 
 export function * alert(title, message, buttons = [], options ) {
