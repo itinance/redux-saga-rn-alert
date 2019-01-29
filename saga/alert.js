@@ -19,7 +19,7 @@ export function * watchAlertChannel() {
             case ACTION_SHOW_ALERT:
                 const {message, title, buttons, options} = action.payload;
 
-                if(_alertIsRunning && _preventNestedAlerts) return; // prevent nested alerts
+                if(_alertIsRunning && _preventNestedAlerts) break; // prevent nested alerts
                 _alertIsRunning = true;
 
                 Alert.alert(title, message, buttons, options)

@@ -1,6 +1,6 @@
 {
   "name": "redux-saga-rn-alert",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "description": "Alert-support for sagas and side-effects",
   "main": "index.js",
   "scripts": {
